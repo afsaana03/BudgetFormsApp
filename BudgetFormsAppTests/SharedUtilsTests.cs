@@ -23,7 +23,7 @@ namespace BudgetFormsApp.Tests
             list.Add(new GeneralExpense(DateTime.Now, "Test", 1, 500, "Test payee"));
             list.Add(new GeneralExpense(DateTime.Now, "Test 2", 1, 1000, "Test payee 2"));
             double result = SharedUtils.CalculateTotals(list);
-            Assert.AreEqual(result, 1500);
+            Assert.AreEqual(1500, result);
         }
 
         [TestMethod()]
@@ -32,21 +32,21 @@ namespace BudgetFormsApp.Tests
             List<Expense> list = new List<Expense>();
             list.Add(new GeneralExpense(DateTime.Now, "Test", 1, 500, "Test payee"));
             double result = SharedUtils.CalculateTotals(list);
-            Assert.AreNotEqual(result, 1500);
+            Assert.AreNotEqual(1500, result);
         }
 
         [TestMethod()]
         public void DetermineAffordabilityTestWithAffordable()
         {
             bool result = SharedUtils.DetermineAffordability(10000, 5000);
-            Assert.AreEqual(result, true);
+            Assert.AreEqual(true, result);
         }
 
         [TestMethod()]
         public void DetermineAffordabilityTestWithUnaffordable()
         {
             bool result = SharedUtils.DetermineAffordability(10000, 8000);
-            Assert.AreEqual(result, false);
+            Assert.AreEqual(false, result);
         }
     }
 }
